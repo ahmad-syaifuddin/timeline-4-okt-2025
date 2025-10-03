@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline Kegiatan - 4 Oktober 2025</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'pulse-dot': 'pulseDot 2s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        pulseDot: {
+                            '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+                            '50%': { transform: 'scale(1.2)', opacity: '0.8' },
+                        }
+                    }
+                },
+            },
+        };
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style type="text/tailwindcss">
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .timeline-item {
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .timeline-dot {
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover .timeline-dot {
+            transform: scale(1.2);
+        }
+        
+        .current-indicator {
+            animation: pulseDot 2s infinite;
+        }
+        
+        @media (max-width: 640px) {
+            .timeline-container {
+                padding-left: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-slate-100 to-blue-50 font-sans flex items-center justify-center min-h-screen p-4">
+
+    <div class="bg-white w-full max-w-2xl rounded-2xl shadow-xl p-8 transform transition-all hover:shadow-2xl animate-fade-in">
+        
+        <div class="mb-8 text-center">
+            <h1 class="text-3xl font-bold text-slate-800">Timeline Kegiatan</h1>
+            <p class="text-md text-slate-500 mt-1">Sabtu, 4 Oktober 2025</p>
+            <div id="dateStatus" class="mt-4 flex justify-center">
+                <!-- Status akan diisi oleh JavaScript -->
+            </div>
+        </div>
+
+        <div id="timelineContainer" class="relative timeline-container">
+            <div class="absolute left-3 top-2 h-full border-l-2 border-slate-200"></div>
+            
+            <div id="currentTimeIndicator" class="absolute w-full items-center" style="display: none;">
+                <div class="absolute -left-[5px] w-4 h-1 bg-red-500 z-10 current-indicator"></div>
+                <div class="absolute left-6 -top-3 text-xs font-bold text-red-500 bg-red-100 px-2 py-1 rounded-full animate-pulse">SAAT INI</div>
+            </div>
+
+            <div class="relative mb-10 pl-10 timeline-item animate-slide-up" style="animation-delay: 0.1s;">
+                <div class="absolute left-0 top-1.5 flex items-center justify-center w-6 h-6 bg-white rounded-full">
+                    <div class="w-4 h-4 bg-blue-500 rounded-full ring-4 ring-white timeline-dot"></div>
+                </div>
+                <div class="bg-blue-50 rounded-lg p-3 -ml-2 border-l-4 border-blue-500">
+                    <p class="text-sm font-semibold text-blue-600">12:30 - 13:00</p>
+                    <h3 class="text-lg font-bold text-slate-800 mt-1">🚀 Perjalanan ke Rumah Aldy</h3>
+                    <p class="text-slate-600 text-sm mt-1">Berangkat dan diperkirakan tiba sebelum pukul 13:30.</p>
+                    <div class="mt-2 flex items-center text-xs text-blue-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        Perjalanan
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative mb-10 pl-10 timeline-item animate-slide-up" style="animation-delay: 0.2s;">
+                <div class="absolute left-0 top-1.5 flex items-center justify-center w-6 h-6 bg-white rounded-full">
+                    <div class="w-4 h-4 bg-blue-500 rounded-full ring-4 ring-white timeline-dot"></div>
+                </div>
+                <div class="bg-blue-50 rounded-lg p-3 -ml-2 border-l-4 border-blue-500">
+                    <p class="text-sm font-semibold text-blue-600">13:30 - 15:50</p>
+                    <h3 class="text-lg font-bold text-slate-800 mt-1">💻 Sesi Ngoding Bareng (Ngobar)</h3>
+                    <p class="text-slate-600 text-sm mt-1">Melanjutkan project aplikasi web absensi dengan Laravel.</p>
+                    <div class="mt-2 flex items-center text-xs text-blue-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                        Pengembangan
+                    </div>
+                </div>
+            </div>
+            
+            <div class="relative mb-10 pl-10 timeline-item animate-slide-up" style="animation-delay: 0.3s;">
+                <div class="absolute left-0 top-1.5 flex items-center justify-center w-6 h-6 bg-white rounded-full">
+                    <div class="w-4 h-4 bg-slate-400 rounded-full ring-4 ring-white timeline-dot"></div>
+                </div>
+                <div class="bg-slate-50 rounded-lg p-3 -ml-2 border-l-4 border-slate-400">
+                    <p class="text-sm font-semibold text-slate-500">15:50 - 16:10</p>
+                    <h3 class="text-lg font-bold text-slate-800 mt-1">☕ Istirahat & Persiapan</h3>
+                    <p class="text-slate-600 text-sm mt-1">Waktu jeda, sholat Ashar, dan bersiap untuk berangkat.</p>
+                    <div class="mt-2 flex items-center text-xs text-slate-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Istirahat
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative pl-10 timeline-item animate-slide-up" style="animation-delay: 0.4s;">
+                <div class="absolute left-0 top-1.5 flex items-center justify-center w-6 h-6 bg-white rounded-full">
+                    <div class="w-4 h-4 bg-emerald-500 rounded-full ring-4 ring-white timeline-dot"></div>
+                </div>
+                <div class="bg-emerald-50 rounded-lg p-3 -ml-2 border-l-4 border-emerald-500">
+                    <p class="text-sm font-semibold text-emerald-600">Mulai 16:10</p>
+                    <h3 class="text-lg font-bold text-slate-800 mt-1">🍢 Mukbang Pentol HKSN</h3>
+                    <p class="text-slate-600 text-sm mt-1">Waktunya santai dan menikmati kuliner!</p>
+                    <div class="mt-2 flex items-center text-xs text-emerald-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        Kuliner
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-8 pt-6 border-t border-slate-200 text-center">
+            <p id="timelineStatus" class="text-sm text-slate-500">Status timeline akan ditampilkan di sini</p>
+            <div id="loadingDots" class="mt-2 flex justify-center space-x-2" style="display: none;">
+                <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse" style="animation-delay: 0.2s;"></div>
+                <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse" style="animation-delay: 0.4s;"></div>
+            </div>
+        </div>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const timelineContainer = document.getElementById('timelineContainer');
+    const currentTimeIndicator = document.getElementById('currentTimeIndicator');
+    const dateStatus = document.getElementById('dateStatus');
+    const timelineStatus = document.getElementById('timelineStatus');
+    const loadingDots = document.getElementById('loadingDots');
+    
+    // Fungsi untuk memformat tanggal
+    function formatDate(date) {
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        return date.toLocaleDateString('id-ID', options);
+    }
+    
+    // Fungsi untuk membandingkan tanggal
+    function isSameDate(date1, date2) {
+        return date1.getFullYear() === date2.getFullYear() &&
+               date1.getMonth() === date2.getMonth() &&
+               date1.getDate() === date2.getDate();
+    }
+    
+    // Fungsi untuk memperbarui status tanggal
+    function updateDateStatus() {
+        const today = new Date();
+        const targetDate = new Date('2025-10-04');
+        
+        dateStatus.innerHTML = '';
+        
+        if (isSameDate(today, targetDate)) {
+            dateStatus.innerHTML = `
+                <div class="bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Hari Ini
+                </div>
+            `;
+            timelineStatus.textContent = 'Timeline aktif - Diperbarui secara otomatis';
+            loadingDots.style.display = 'flex';
+            return true;
+        } else {
+            const formattedToday = formatDate(today);
+            dateStatus.innerHTML = `
+                <div class="bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    ${formattedToday}
+                </div>
+            `;
+            timelineStatus.textContent = 'Timeline ini untuk tanggal 4 Oktober 2025. Indikator waktu saat ini tidak aktif.';
+            loadingDots.style.display = 'none';
+            currentTimeIndicator.style.display = 'none';
+            return false;
+        }
+    }
+
+    function updateIndicatorPosition() {
+        // Cek apakah hari ini adalah tanggal target
+        const isTodayTargetDate = updateDateStatus();
+        
+        if (!isTodayTargetDate) {
+            return;
+        }
+        
+        // --- PENTING ---
+        // Untuk tujuan DEMO, kita simulasikan tanggalnya adalah 4 Oktober 2025.
+        // Ganti baris di bawah dengan `const now = new Date();` untuk waktu sebenarnya.
+        const now = new Date(); // Gunakan waktu nyata
+        const demoDate = new Date('2025-10-04');
+        now.setFullYear(demoDate.getFullYear());
+        now.setMonth(demoDate.getMonth());
+        now.setDate(demoDate.getDate());
+        // --- Akhir Bagian Demo ---
+        
+        // Tentukan rentang waktu timeline dalam menit dari tengah malam
+        const timelineStartMinutes = 12.5 * 60; // 12:30
+        const timelineEndMinutes = 17 * 60;   // 17:00 (estimasi akhir)
+        
+        const totalTimelineDuration = timelineEndMinutes - timelineStartMinutes;
+        
+        const currentMinutes = now.getHours() * 60 + now.getMinutes();
+        
+        // Cek apakah waktu saat ini berada dalam rentang timeline
+        if (currentMinutes >= timelineStartMinutes && currentMinutes <= timelineEndMinutes) {
+            const minutesIntoTimeline = currentMinutes - timelineStartMinutes;
+            const percentagePosition = minutesIntoTimeline / totalTimelineDuration;
+            
+            const timelineHeight = timelineContainer.offsetHeight;
+            const topPosition = timelineHeight * percentagePosition;
+            
+            currentTimeIndicator.style.top = `${topPosition}px`;
+            currentTimeIndicator.style.display = 'flex';
+        } else {
+            currentTimeIndicator.style.display = 'none';
+        }
+    }
+
+    // Panggil fungsi saat halaman dimuat
+    updateIndicatorPosition();
+    
+    // Perbarui posisi indikator setiap menit jika hari ini adalah tanggal target
+    setInterval(function() {
+        const today = new Date();
+        const targetDate = new Date('2025-10-04');
+        
+        if (isSameDate(today, targetDate)) {
+            updateIndicatorPosition();
+        }
+    }, 60000);
+    
+    // Tambahkan event listener untuk resize
+    window.addEventListener('resize', updateIndicatorPosition);
+});
+</script>
+
+</body>
+</html>
